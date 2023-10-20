@@ -2,57 +2,57 @@ namespace LinkedList
 {
     public partial class Form1 : Form
     {
-        LinkedList List1;
+        private MyStack<string> stringStack;
 
         public Form1()
         {
             InitializeComponent();
-            List1 = new LinkedList();
-
+            stringStack = new MyStack<string>();
         }
 
-        private void Crearnodo_Click(object sender, EventArgs e)
+        private void UpdateStackListBox()
         {
-
-
-        }
-
-        private void StringToListBox(string[] dataArray, Label list1)
-        {
-            list1.Text = string.Empty;
-            for (int i = 0; i < dataArray.Length; i++)
+            StackListBox.Items.Clear();
+            for (int i = stringStack.Count - 1; i >= 0; i--)
             {
-                if (dataArray[i] == null)
-                {
-                    MessageBox.Show("Item array is null");
-                    continue;
-                }
-                list1.Text = dataArray[i];
+                string item = stringStack[i];
+                StackListBox.Items.Add(item);
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void PushButton_Click_1(object sender, EventArgs e)
         {
-            if (lblCima.Text == "")
-                lblCima.Text = "Cima = " + List1.Peek();
-            else
-                lblCima.Text = "";
+            string item = InputTextBox.Text;
+            stringStack.Push(item);
+            UpdateStackListBox();
+            InputTextBox.Clear();
         }
 
-        private void btnCrear_Click(object sender, EventArgs e)
+        private void PopButton_Click_1(object sender, EventArgs e)
         {
-            List1.Push(int.Parse(txtDato.Text));
-            label1.Text = List1.ToString();
-            txtDato.Clear();
-            txtDato.Focus();
-            lblCima.Text = "";
+            try
+            {
+                string poppedItem = stringStack.Pop();
+                MessageBox.Show("Elemento desapilado: " + poppedItem);
+                UpdateStackListBox();
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("La pila está vacía. No se pueden desapilar elementos.");
+            }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void PeekButton_Click(object sender, EventArgs e)
         {
-            List1.Pop();
-            label1.Text = List1.ToString();
-            lblCima.Text = "";
+            try
+            {
+                string topItem = stringStack.Peek();
+                MessageBox.Show("Elemento en la cima de la pila: " + topItem);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("La pila está vacía. No hay elementos para ver.");
+            }
         }
     }
 }

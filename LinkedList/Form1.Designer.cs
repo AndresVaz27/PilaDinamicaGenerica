@@ -28,62 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtDato = new TextBox();
-            btnCrear = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            label1 = new Label();
+            InputTextBox = new TextBox();
+            PushButton = new Button();
+            PopButton = new Button();
+            PeekButton = new Button();
             label2 = new Label();
-            lblCima = new Label();
+            StackListBox = new ListBox();
             SuspendLayout();
             // 
-            // txtDato
+            // InputTextBox
             // 
-            txtDato.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDato.Location = new Point(83, 106);
-            txtDato.Name = "txtDato";
-            txtDato.Size = new Size(125, 34);
-            txtDato.TabIndex = 0;
+            InputTextBox.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            InputTextBox.Location = new Point(83, 106);
+            InputTextBox.Name = "InputTextBox";
+            InputTextBox.Size = new Size(125, 34);
+            InputTextBox.TabIndex = 0;
             // 
-            // btnCrear
+            // PushButton
             // 
-            btnCrear.Location = new Point(261, 112);
-            btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(186, 29);
-            btnCrear.TabIndex = 2;
-            btnCrear.Text = "Push (Apilar/Agregar)";
-            btnCrear.UseVisualStyleBackColor = true;
-            btnCrear.Click += btnCrear_Click;
+            PushButton.Location = new Point(261, 112);
+            PushButton.Name = "PushButton";
+            PushButton.Size = new Size(186, 29);
+            PushButton.TabIndex = 2;
+            PushButton.Text = "Push (Apilar/Agregar)";
+            PushButton.UseVisualStyleBackColor = true;
+            PushButton.Click += PushButton_Click_1;
             // 
-            // button1
+            // PopButton
             // 
-            button1.Location = new Point(261, 171);
-            button1.Name = "button1";
-            button1.Size = new Size(186, 29);
-            button1.TabIndex = 3;
-            button1.Text = "Pop (Eliminar)";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            PopButton.Location = new Point(261, 171);
+            PopButton.Name = "PopButton";
+            PopButton.Size = new Size(186, 29);
+            PopButton.TabIndex = 3;
+            PopButton.Text = "Pop (Eliminar)";
+            PopButton.UseVisualStyleBackColor = true;
+            PopButton.Click += PopButton_Click_1;
             // 
-            // button2
+            // PeekButton
             // 
-            button2.Location = new Point(261, 230);
-            button2.Name = "button2";
-            button2.Size = new Size(186, 29);
-            button2.TabIndex = 6;
-            button2.Text = "Peek (Solo Mostrar)";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(508, 107);
-            label1.Name = "label1";
-            label1.Size = new Size(78, 32);
-            label1.TabIndex = 7;
-            label1.Text = "label1";
+            PeekButton.Location = new Point(261, 230);
+            PeekButton.Name = "PeekButton";
+            PeekButton.Size = new Size(186, 29);
+            PeekButton.TabIndex = 6;
+            PeekButton.Text = "Peek (Solo Mostrar)";
+            PeekButton.UseVisualStyleBackColor = true;
+            PeekButton.Click += PeekButton_Click;
             // 
             // label2
             // 
@@ -95,28 +84,26 @@
             label2.TabIndex = 8;
             label2.Text = "Dato  (Int):";
             // 
-            // lblCima
+            // StackListBox
             // 
-            lblCima.AutoSize = true;
-            lblCima.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCima.Location = new Point(508, 225);
-            lblCima.Name = "lblCima";
-            lblCima.Size = new Size(78, 32);
-            lblCima.TabIndex = 9;
-            lblCima.Text = "label3";
+            StackListBox.FormattingEnabled = true;
+            StackListBox.ItemHeight = 20;
+            StackListBox.Location = new Point(517, 71);
+            StackListBox.Name = "StackListBox";
+            StackListBox.Size = new Size(321, 184);
+            StackListBox.TabIndex = 9;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(902, 364);
-            Controls.Add(lblCima);
+            Controls.Add(StackListBox);
             Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(btnCrear);
-            Controls.Add(txtDato);
+            Controls.Add(PeekButton);
+            Controls.Add(PopButton);
+            Controls.Add(PushButton);
+            Controls.Add(InputTextBox);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -125,13 +112,12 @@
 
         #endregion
 
-        private TextBox txtDato;
+        private TextBox InputTextBox;
         private Button btnAdd;
-        private Button btnCrear;
-        private Button button1;
-        private Button button2;
-        private Label label1;
+        private Button PushButton;
+        private Button PopButton;
+        private Button PeekButton;
         private Label label2;
-        private Label lblCima;
+        private ListBox StackListBox;
     }
 }
